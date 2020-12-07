@@ -19,7 +19,7 @@ const args = arg({
     '-w': '--watch',
 });
 const entryFile = path.resolve(__dirname, args['--entry'] || 'src/index.ts');
-const outDir = path.resolve(__dirname, args['--out-dir'] || 'docs');
+const outDir = path.resolve(__dirname, args['--out-dir'] || 'public');
 const prod = !!args['--production'];
 const watch = !!args['--watch'];
 
