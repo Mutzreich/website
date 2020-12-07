@@ -1,0 +1,27 @@
+@use "style/colors";
+@use "style/dimensions";
+@use "style/reset";
+
+body, html {
+  background-color: colors.$background;
+  height: 100vh;
+  overflow: hidden;
+  width: 100vw;
+}
+
+#app {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  height: 100%;
+  width: 100%;
+}
+
+#logo {
+  max-height: 80%;
+  max-width: 50%;
+}

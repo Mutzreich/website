@@ -1,0 +1,8 @@
+@use "util";
+
+$default-margin: 1rem 1ch;
+$default-padding: 1rem 1ch;
+
+$menu-height: 4rem;
+
+$toolbar-width: 100% - 100% / util.$phi;
