@@ -50,8 +50,9 @@ const log = (...strs) => console.log.apply(console.log,['[make]'].concat(strs));
             target: 'web',
             watch,
             output: {
+                filename: 'bundle.js',
                 path: outDir,
-                filename: 'bundle.js'
+                publicPath: '',
             },
             resolve: {
                 extensions: ['.js', '.ts', '.tsx'],
@@ -76,6 +77,8 @@ const log = (...strs) => console.log.apply(console.log,['[make]'].concat(strs));
                         use: [
                             "file-loader?name=[name].html",
                             "extract-loader",
+                            "html-loader",
+                            "extract-loader",
                             "raw-loader",
                             "pug-html-loader",
                         ],
@@ -98,7 +101,7 @@ const log = (...strs) => console.log.apply(console.log,['[make]'].concat(strs));
                         test: /\.s[ac]ss$/i,
                         //include: path.resolve(__dirname, 'src', 'main.scss'),
                         use: [
-                            "file-loader?name=[name].css",
+                            "file-loader?name=[contenthash].css",
                             "extract-loader",
                             {
                                 loader: 'css-loader',
@@ -113,7 +116,15 @@ const log = (...strs) => console.log.apply(console.log,['[make]'].concat(strs));
                                 }
                             }
                         ],
-                    },/*
+                    },
+                    {// assets
+                        test: /\.(png)/i,
+                        use: [
+                            "file-loader?name=[contenthash].[ext]",
+                        ],
+                    },
+
+                    /*
                     {// component scss
                         test: /\.s[ac]ss$/i,
                         exclude: path.resolve(__dirname, 'src', 'main.scss'),
@@ -143,12 +154,12 @@ const log = (...strs) => console.log.apply(console.log,['[make]'].concat(strs));
                     },
                 ],
             },
-            plugins: [
+            plugins: [/*
                 new CopyPlugin({
                     patterns: [
                         { from: 'assets', to: './assets' },
                     ]
-                }),
+                }),*/
                 new ProgressBarPlugin(),
                 new webpack.IgnorePlugin(
                     /bundle\.js$/i

@@ -19,7 +19,7 @@
     "pug-runtime": "^3.0.0",
     "raw-loader": "^4.0.2",
     "regenerator-runtime": "^0.13.7",
-    "sass": "^1.30.0",
+    "sass": "^1.32.6",
     "sass-loader": "^10.1.0",
     "style-loader": "^2.0.0",
     "to-string-loader": "^1.1.6",
@@ -27,7 +27,7 @@
     "tslib": "latest",
     "typescript": "latest",
     "util": "^0.12.3",
-    "webpack": "^5.10.0"
+    "webpack": "^5.20.2"
   },
   "scripts": {
     "build": "node make.js -p --entry src/index.ts",
